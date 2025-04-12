@@ -1,99 +1,113 @@
-# Swap Tokens on Arbitrum 🚀
+# Swap Tokens on Arbitrum
 
-Este proyecto implementa un contrato inteligente para realizar swaps de tokens en la red Arbitrum utilizando Uniswap V2. El contrato permite intercambiar tokens ERC20 de manera segura y eficiente, con control sobre el slippage y deadlines.
+This project implements a smart contract to perform token swaps on the Arbitrum network using Uniswap V2. The contract allows secure and efficient ERC20 token exchanges, with control over slippage and deadlines.
 
-## ✨ Características Principales
+## 🚀 Main Features
 
-### 🎯 Funcionalidades Core
-- 💱 Swap exacto de tokens por tokens
-- 🔗 Integración directa con Uniswap V2 Router
-- 📊 Manejo configurable de slippage
-- ⏱️ Sistema de deadlines para transacciones
-- ✅ Validación de balances y aprobaciones
-- 🔒 Manejo seguro de tokens ERC20
+### Core Functionalities
+- Exact token-to-token swaps
+- Direct integration with Uniswap V2 Router
+- Configurable slippage handling
+- Transaction deadline system
+- Validation of balances and approvals
+- Secure handling of ERC20 tokens
 
-### 🛡️ Seguridad
-- 🛡️ Uso de SafeERC20 para transferencias seguras
-- 🔍 Validación de balances antes de las operaciones
-- ⚠️ Manejo de errores y revertidos
-- 🔐 Protección contra reentrancy
-- ✅ Validación de direcciones y cantidades
+### Security
+- Use of SafeERC20 for secure transfers
+- Validation of balances before operations
+- Error handling and reverts
+- Protection against reentrancy
+- Validation of addresses and amounts
 
-### 🧪 Testing
-- 🧪 Tests completos con Foundry
-- 🔄 Tests de integración con la red Arbitrum
-- 💰 Verificación de balances y transferencias
-- 🎯 Tests de casos límite y errores
+### Testing
+- Comprehensive tests with Foundry
+- Integration tests with the Arbitrum network
+- Verification of balances and transfers
+- Edge case and error tests
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-### ⛓️ Blockchain
-- 📜 Solidity 0.8.26
-- 🌐 Arbitrum Network
-- 🔄 Uniswap V2 Protocol
+### Blockchain
+- Solidity 0.8.26
+- Arbitrum Network
+- Uniswap V2 Protocol
 
-### 💻 Desarrollo
-- 🔨 Foundry para testing y deployment
-- 🏗️ OpenZeppelin Contracts
-- ⚙️ Hardhat (opcional para desarrollo local)
+### Development
+- Foundry for testing and deployment
+- OpenZeppelin Contracts
+- Hardhat (optional for local development)
 
-### 🧰 Herramientas
-- 🔍 Slither para análisis de seguridad
-- 📝 Solhint para linting
-- 📚 Git para control de versiones
+### Tools
+- Slither for security analysis
+- Solhint for linting
+- Git for version control
 
-## 📦 Instalación
+## 📦 Installation
 
-### 📋 Prerrequisitos
-- 📦 Node.js (v16 o superior)
-- 🔨 Foundry
-- 📚 Git
+### Prerequisites
+- Node.js (v16 or higher)
+- Foundry
+- Git
 
-### 📝 Pasos de Instalación
+### Installation Steps
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
-git clone (https://github.com/Vicent00/SwapTokensNormal.git)
+git clone [your-repository]
 cd swapTokensNormal
 ```
 
-2. Instala las dependencias:
+2. Install dependencies:
 ```bash
 forge install
 ```
 
-3. Configura tu entorno:
+3. Configure your environment:
 ```bash
 cp .env.example .env
-# Edita .env con tus configuraciones
+# Edit .env with your configurations
 ```
 
+## 🏗️ Project Structure
 
-## 🔧 Configuración
+swapTokensNormal/
+├── src/
+│ ├── Swap.sol # Main swap contract
+│ ├── IV2Router.sol # Uniswap V2 Router interface
+│ └── interfaces/ # Additional interfaces
+├── test/
+│ ├── TestSwap.t.sol # Tests for the Swap contract
+│ └── mocks/ # Mocks for testing
+├── script/
+│ └── deploy.s.sol # Deployment scripts
+└── lib/
+└── openzeppelin/ # OpenZeppelin dependencies
 
-### Variables de Entorno
+## 🔧 Configuration
+
+### Environment Variables
 ```env
 ARBITRUM_RPC_URL=https://arb1.arbitrum.io/rpc
-PRIVATE_KEY=tu_llave_privada
-ETHERSCAN_API_KEY=tu_api_key
+PRIVATE_KEY=your_private_key
+ETHERSCAN_API_KEY=your_api_key
 ```
 
-### Configuración de Red
+### Network Configuration
 - Mainnet: Arbitrum One
 - Testnet: Arbitrum Goerli
 - RPC URL: https://arb1.arbitrum.io/rpc
 
-## 💻 Uso
+## 💻 Usage
 
-### Despliegue
+### Deployment
 
-1. Configura tu `.env`:
+1. Configure your `.env`:
 ```bash
 cp .env.example .env
-# Edita .env con tus configuraciones
+# Edit .env with your configurations
 ```
 
-2. Despliega el contrato:
+2. Deploy the contract:
 ```bash
 forge create --rpc-url $ARBITRUM_RPC_URL \
   --constructor-args 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 \
@@ -102,33 +116,33 @@ forge create --rpc-url $ARBITRUM_RPC_URL \
 
 ### Testing
 
-Para ejecutar los tests:
+To run the tests:
 ```bash
-# Tests básicos
+# Basic tests
 forge test
 
-# Tests con fork de Arbitrum
+# Tests with Arbitrum fork
 forge test --fork-url $ARBITRUM_RPC_URL -vv
 
-# Tests con coverage
+# Tests with coverage
 forge coverage
 ```
 
-## 📍 Direcciones Importantes
+## 📍 Important Addresses
 
-### Contratos
-- Router V2 de Uniswap: `0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506`
+### Contracts
+- Uniswap V2 Router: `0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506`
 - USDC: `0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8`
 - USDT: `0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9`
 - DAI: `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1`
 
-### Pools de Liquidez
+### Liquidity Pools
 - USDC/USDT: `0x2f5e87C9312fa29aed5c179E456625D79015299c`
 - USDC/DAI: `0x7f90122BF0700F9E7e1F688fe926940E8839F353`
 
-## 🔍 Funcionalidades Detalladas
+## 🔍 Detailed Functionalities
 
-### Swap de Tokens
+### Token Swap
 ```solidity
 function swapTokens(
     uint amountIn,
@@ -139,167 +153,97 @@ function swapTokens(
 ) external
 ```
 
-### Parámetros
-- `amountIn`: Cantidad exacta de tokens a enviar
-- `amountOutMin`: Cantidad mínima de tokens a recibir
-- `path`: Array de direcciones que define la ruta del swap
-- `to`: Dirección que recibirá los tokens
-- `deadline`: Tiempo límite para ejecutar la transacción
+### Parameters
+- `amountIn`: Exact amount of tokens to send
+- `amountOutMin`: Minimum amount of tokens to receive
+- `path`: Array of addresses defining the swap route
+- `to`: Address to receive the tokens
+- `deadline`: Time limit to execute the transaction
 
-### Ejemplo de Uso
+### Usage Example
 ```solidity
-// Swap de USDT a USDC
+// Swap USDT to USDC
 address[] memory path = new address[](2);
 path[0] = USDT;
 path[1] = USDC;
 
 swap.swapTokens(
     100 * 1e6,                    // 100 USDT
-    99 * 1e6,                     // 99 USDC mínimo
+    99 * 1e6,                     // Minimum 99 USDC
     path,
     msg.sender,
     block.timestamp + 15 minutes
 );
 ```
 
-## 🛡️ Seguridad
+## 🛡️ Security
 
-### Consideraciones de Seguridad
-1. Validación de balances antes de operaciones
-2. Uso de SafeERC20 para transferencias
-3. Protección contra reentrancy
-4. Validación de direcciones y cantidades
-5. Manejo de errores y revertidos
+### Security Considerations
+1. Validation of balances before operations
+2. Use of SafeERC20 for transfers
+3. Protection against reentrancy
+4. Validation of addresses and amounts
+5. Error handling and reverts
 
-### Auditorías
-- [Enlace a auditorías realizadas]
-- [Resultados de análisis de seguridad]
-
-### 🧪 Testing
-
-Para ejecutar los tests:
-```bash
-# 🧪 Tests básicos
-forge test
-
-# 🔄 Tests con fork de Arbitrum
-forge test --fork-url $ARBITRUM_RPC_URL -vv
-
-# 📊 Tests con coverage
-forge coverage
-```
-
-## 📍 Direcciones Importantes
-
-### 📑 Contratos
-- 🔄 Router V2 de Uniswap: `0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506`
-- �� USDC: `0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8`
-- 💵 USDT: `0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9`
-- 💵 DAI: `0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1`
-
-### 💧 Pools de Liquidez
-- 💵 USDC/USDT: `0x2f5e87C9312fa29aed5c179E456625D79015299c`
-- 💵 USDC/DAI: `0x7f90122BF0700F9E7e1F688fe926940E8839F353`
-
-## 🔍 Funcionalidades Detalladas
-
-### 💱 Swap de Tokens
-```solidity
-function swapTokens(
-    uint amountIn,
-    uint amountOutMin,
-    address[] calldata path,
-    address to,
-    uint deadline
-) external
-```
-
-### 📊 Parámetros
-- 💰 `amountIn`: Cantidad exacta de tokens a enviar
-- 📉 `amountOutMin`: Cantidad mínima de tokens a recibir
-- 🛣️ `path`: Array de direcciones que define la ruta del swap
-- 📬 `to`: Dirección que recibirá los tokens
-- ⏱️ `deadline`: Tiempo límite para ejecutar la transacción
-
-### 📝 Ejemplo de Uso
-```solidity
-// Swap de USDT a USDC
-address[] memory path = new address[](2);
-path[0] = USDT;
-path[1] = USDC;
-
-swap.swapTokens(
-    100 * 1e6,                    // 100 USDT
-    99 * 1e6,                     // 99 USDC mínimo
-    path,
-    msg.sender,
-    block.timestamp + 15 minutes
-);
-```
-
-## 🛡️ Seguridad
-
-### 🔒 Consideraciones de Seguridad
-1. 🔍 Validación de balances antes de operaciones
-2. 🛡️ Uso de SafeERC20 para transferencias
-3. 🔐 Protección contra reentrancy
-4. ✅ Validación de direcciones y cantidades
-5. ⚠️ Manejo de errores y revertidos
-
-### 📋 Auditorías
-- 📝 [Enlace a auditorías realizadas]
-- 🔍 [Resultados de análisis de seguridad]
+### Audits
+- [Link to performed audits]
+- [Security analysis results]
 
 ## 🧪 Testing
 
-### 📋 Tipos de Tests
-1. 🧪 Unit Tests
-   - 📝 Funcionalidades básicas
-   - 🎯 Casos límite
-   - ⚠️ Manejo de errores
+### Types of Tests
+1. Unit Tests
+   - Basic functionalities
+   - Edge cases
+   - Error handling
 
-2. 🔄 Integration Tests
-   - 🔗 Interacción con Uniswap
-   - 💰 Manejo de tokens
-   - ✅ Validación de balances
+2. Integration Tests
+   - Interaction with Uniswap
+   - Token handling
+   - Balance validation
 
-3. 🌐 Fork Tests
-   - 🔄 Tests en la red real
-   - 💹 Verificación de precios
-   - 💧 Validación de pools
+3. Fork Tests
+   - Tests on the real network
+   - Price verification
+   - Pool validation
 
-### 🚀 Ejecución de Tests
+### Running Tests
 ```bash
-# 🧪 Todos los tests
+# All tests
 forge test
 
-# �� Tests específicos
+# Specific tests and examples
 forge test --match-test testSwapUSDTtoUSDC
 
-# 🔄 Tests con fork
+# Fork tests
 forge test --fork-url $ARBITRUM_RPC_URL
 ```
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-1. 📥 Fork el proyecto
-2. 🌿 Crea tu rama de feature (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push a la rama (`git push origin feature/AmazingFeature`)
-5. 🔄 Abre un Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### 📋 Guía de Contribución
-- 📝 Sigue las convenciones de código
-- 🧪 Añade tests para nuevas funcionalidades
-- 📚 Documenta los cambios
-- 📊 Mantén el coverage alto
+### Contribution Guidelines
+- Follow code conventions
+- Add tests for new features
+- Document changes
+- Maintain high coverage
 
-## 📞 Contacto
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 📞 Contact
 
 - Email: [mailto:info@vicenteaguilar.com]
-- 
-## 🙏 Agradecimientos
 
-- Equipo de Uniswap
-- Comunidad de Arbitrum
-- Contribuidores de OpenZeppelin
+
+## 🙏 Acknowledgments
+
+- Uniswap Team
+- Arbitrum Community
+- OpenZeppelin Contributors
